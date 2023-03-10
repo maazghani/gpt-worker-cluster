@@ -1,0 +1,15 @@
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: gpt3-worker
+  labels:
+    function: gpt3-worker
+spec:
+  name: gpt3-worker
+  image: <your_docker_image>
+  environment:
+    nats_server_url: nats://nats-cluster.nats:4222
+  secrets:
+    - nats_username
+    - nats_password
+
